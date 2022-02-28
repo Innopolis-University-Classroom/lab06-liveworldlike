@@ -5,6 +5,6 @@ public class CurrencyConverter {
         return 0.f;
     }
     public String[] listAvailableCurrencies(){
-        return null;
+        return new String[]{"Dummy currency"};
     }
 }

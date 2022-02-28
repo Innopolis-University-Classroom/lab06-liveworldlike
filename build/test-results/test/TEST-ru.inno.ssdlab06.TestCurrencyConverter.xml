@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.inno.ssdlab06.TestCurrencyConverter" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-02-28T11:35:05" hostname="HOME-PC" time="0.029">
+<testsuite name="ru.inno.ssdlab06.TestCurrencyConverter" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-02-28T11:50:26" hostname="HOME-PC" time="0.029">
   <properties/>
   <testcase name="testCurrency()" classname="ru.inno.ssdlab06.TestCurrencyConverter" time="0.029">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
