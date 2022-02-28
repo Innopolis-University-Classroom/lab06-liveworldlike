@@ -1,6 +1,6 @@
 package ru.inno.ssdlab06;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
@@ -13,13 +13,9 @@ public class ConverterGUI {
     JButton swapButton;
     JButton convertButton;
     CurrencyConverter converter;
-    public ConverterGUI(){
-        ActionListener convertActionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                convert();
-            }
-        };
+
+    public ConverterGUI() {
+        ActionListener convertActionListener = e -> convert();
         converter = new CurrencyConverter();
         String[] availableCurrencies = converter.listAvailableCurrencies();
         frame = new JFrame("Currency converter");
@@ -35,11 +31,9 @@ public class ConverterGUI {
         convertButton.addActionListener(convertActionListener);
         swapButton = new JButton("Swap");
         swapButton.setBounds(100, 40, 80, 20);
-        swapButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                swap();
-            }
+        swapButton.addActionListener(e -> {
+            swap();
+            convert();
         });
         convertedAmountField = new JTextField();
         convertedAmountField.setBounds(190, 10, 80, 20);
@@ -56,19 +50,20 @@ public class ConverterGUI {
         frame.add(newCurrencyBox);
         frame.setVisible(true);
     }
-    private void convert(){
-        try{
+
+    private void convert() {
+        try {
             float originalAmount = Float.parseFloat(originalAmountField.getText());
             String originalCurrency = (String) originalCurrencyBox.getSelectedItem();
             String newCurrency = (String) newCurrencyBox.getSelectedItem();
-            Float convertedAmount = converter.convert(originalAmount, newCurrency, originalCurrency);
-            convertedAmountField.setText(convertedAmount.toString());
-        }
-        catch(NumberFormatException e){
+            float convertedAmount = converter.convert(originalAmount, newCurrency, originalCurrency);
+            convertedAmountField.setText(Float.toString(convertedAmount));
+        } catch (NumberFormatException e) {
             convertedAmountField.setText("Error");
         }
     }
-    private void swap(){
+
+    private void swap() {
         int temp = originalCurrencyBox.getSelectedIndex();
         originalCurrencyBox.setSelectedIndex(newCurrencyBox.getSelectedIndex());
         newCurrencyBox.setSelectedIndex(temp);

@@ -1,45 +1,40 @@
 package ru.inno.ssdlab06;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestCurrencyConverter {
 
-   @Test
-   public void testCurrency()
-   {
-     PrintStream originalOut = System.out;
-     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-     System.setOut(new PrintStream(bos));
+    @Test
+    public void testCurrency() {
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bos));
 
-     CurrencyConverter currency = new CurrencyConverter();
+        CurrencyConverter currency = new CurrencyConverter();
 
-     //converting usd to rouble
+        //converting usd to rouble
 
-     float convertedUsd = currency.convert(1, "rouble", "usd");
+        float convertedUsd = currency.convert(1, "rouble", "usd");
 
-     boolean isGreaterThanOne = convertedUsd > 1.f;
+        boolean isGreaterThanOne = convertedUsd > 1.f;
 
-     boolean isLessThanTwenty = convertedUsd < 20.f;
+        boolean isLessThanTwenty = convertedUsd < 20.f;
 
-     // action
-     // Main.main(null);
+        // action
+        // Main.main(null);
 
-     assertTrue(isGreaterThanOne);
-     assertTrue(isLessThanTwenty);
+        assertTrue(isGreaterThanOne);
+        assertTrue(isLessThanTwenty);
 
-     // assertion
-     // assertEquals("Hello world!\n", bos.toString());
+        // assertion
+        // assertEquals("Hello world!\n", bos.toString());
 
-     // undo the binding in System
-     System.setOut(originalOut);
-   }
+        // undo the binding in System
+        System.setOut(originalOut);
+    }
 }
