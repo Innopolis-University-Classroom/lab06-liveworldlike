@@ -24,7 +24,7 @@ public class TestCurrencyConverter {
 
      //converting usd to rouble
 
-     float convertedUsd = currency.convert(1, "rouble", "usd")
+     float convertedUsd = currency.convert(1, "rouble", "usd");
 
      boolean isGreaterThanOne = convertedUsd > 1.f;
 
